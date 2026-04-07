@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  # GET /users/1/edit
+  # # GET /users/1/edit
   def edit
   end
 
@@ -61,6 +61,11 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params.expect(:id))
+
+      first_user = User.first
+      @microposts = first_user.microposts.first
+
+      # puts userFirstMicropost
     end
 
     # Only allow a list of trusted parameters through.
